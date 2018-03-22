@@ -1,3 +1,4 @@
+##R code for phylogeny comparison of fasta sequences
 library(ape)
 library(seqinr)
 library(msa)
@@ -14,11 +15,10 @@ msaplot(ggtree(X_Tree, branch.length = 'none',ndigits=3) + geom_text2(aes(subset
           geom_text(aes(x=branch, label= round(node.depth.edgelength(X_Tree),3)), vjust=0, color="firebrick") + 
           geom_tiplab(), fasta = X ,  offset=8)
 
-msaPrettyPrint(X_ClustalW, output=c("pdf", "tex"),  subset=NULL, file=NULL, alFile=NULL,
+msaPrettyPrint(X_ClustalW, output=c("pdf", "tex", "dvi", "asis"),  subset=NULL, file=NULL, alFile=NULL,
                askForOverwrite=TRUE,  psFonts=FALSE, code=NA,
                paperWidth=11, paperHeight=8.5, margins=c(0.1, 0.3),
-               shadingMode=c("identical", "similar", "functional"),
-               shadingModeArg=NA, shadingColors=c"blues",showConsensus="bottom",
+               shadingMode="identical", shadingModeArg=NA, shadingColors="blues",showConsensus="bottom",
                consensusColors="ColdHot", consensusThreshold=50,showLogo="top", 
                logoColors="chemical",showLogoScale="none", showNames="left",
                showNumbering="right", showLegend=TRUE, furtherCode=NA, verbose=FALSE)
